@@ -16,4 +16,5 @@ fn save_image(content: String) {
     for line in content.lines() {
         writeln!(bfwr, "{line}").expect("Error escribiendo linea");
     }
+
 }
