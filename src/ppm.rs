@@ -1,4 +1,6 @@
-use crate::vec3::Color;
+#![allow(dead_code)]
+use crate::vec3::{Color, Vec3, Point3};
+use crate::ray::Ray;
 use crate::colors::write_color;
 
 const ASPECT_R: f64 = 16.00 / 9.00;
@@ -7,10 +9,20 @@ pub fn create_image() -> String {
     // imagen
     let image_width = 400;
     let image_height = (image_width as f64 / (ASPECT_R.max(1.0))) as i32;
-    //dbg!(image_width, image_height, ASPECT_R, image_width / image_height);
-    //
+
+    // camara
+    let focal_length = 1.0;
     let viewport_height = 2.0;
     let viewport_width = viewport_height * (image_width as f64 / image_height as f64);
+    let camera_center = Point3::default();
+
+    let viewport_u = Vec3::new([viewport_width, 0.0, 0.0]);
+    let viewport_v = Vec3::new([0.0, -viewport_width, 0.0]);
+
+    //let 
+
+    let pixel_delta_u = viewport_u / image_width as f64;
+    let pixel_delta_v = viewport_v / image_height as f64;
 
     let mut content = String::new();
 
@@ -30,3 +42,6 @@ pub fn create_image() -> String {
     content
 }
 
+fn ray_color(r: &Ray) -> Color {
+    Color::default()
+}

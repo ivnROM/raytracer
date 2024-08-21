@@ -88,7 +88,6 @@ impl ops::Mul for Vec3 {
     }
 }
 
-
 impl ops::Div<f64> for Vec3 {
     type Output = Vec3;
 
