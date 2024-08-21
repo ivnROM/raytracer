@@ -16,12 +16,12 @@ impl Ray {
     }
 
 
-    pub const fn origin(&self) -> Point3 {
-        self.orig
+    pub const fn origin(&self) -> &Point3 {
+        &self.orig
     }
 
-    pub const fn direction(&self) -> Vec3 {
-        self.orig
+    pub const fn direction(&self) -> &Vec3 {
+        &self.orig
     }
 
     pub fn at(&self, t: f64) -> Point3 {
