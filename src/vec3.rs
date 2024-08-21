@@ -7,9 +7,17 @@ pub struct Vec3 {
 }
 
 impl Vec3 {
+    /// Generates a new Vec3 with default values [0, 0, 0]
     pub fn default() -> Self {
         Vec3 {
             e: [0.0, 0.0, 0.0]
+        }
+    }
+
+    /// Generates a new Vec3 with custom values 
+    pub fn new(e: [f64; 3]) -> Self {
+        Vec3 {
+            e,
         }
     }
 
@@ -62,4 +70,4 @@ impl Vec3 {
 
 }
 
-type Point3 = Vec3;
+pub type Color = Vec3;

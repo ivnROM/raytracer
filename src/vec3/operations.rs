@@ -48,6 +48,16 @@ impl ops::Add for Vec3 {
     }
 }
 
+impl ops::Sub for Vec3 {
+    type Output = Vec3;
+
+    fn sub(self, rhs: Self) -> Self::Output {
+        Self {
+            e: [self.e[0] - rhs.e[0], self.e[1] - rhs.e[1], self.e[2] - rhs.e[2]]
+        }
+    }
+}
+
 impl ops::Mul<f64> for Vec3 {
     type Output = Vec3;
 
@@ -58,8 +68,17 @@ impl ops::Mul<f64> for Vec3 {
     }
 }
 
-// TODO! FIJARSE SI SE PUEDE USAR EL OPERADOR * DE ARRIBA PARA NO ESCRIBIR TANTO QUILOMBO LA PUTA
-// MADRE PARA ALGO HICE QUE FUNCIONES LA PUTA TUYA
+impl ops::Mul for Vec3 {
+    type Output = Vec3;
+
+    fn mul(self, factor: Self) -> Self::Output {
+        Self {
+            e: [self.e[0] * factor.e[0], self.e[1] * factor.e[1], self.e[2] * factor.e[2]]
+        }
+    }
+}
+
+
 impl ops::Div<f64> for Vec3 {
     type Output = Vec3;
 
