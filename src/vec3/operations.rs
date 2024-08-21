@@ -68,6 +68,16 @@ impl ops::Mul<f64> for Vec3 {
     }
 }
 
+impl ops::Mul<Vec3> for f64 {
+    type Output = Vec3;
+
+    fn mul(self, factor: Vec3) -> Self::Output {
+        Vec3 {
+            e: [factor.e[0] * self, factor.e[1] * self, factor.e[2] * self]
+        }
+    }
+}
+
 impl ops::Mul for Vec3 {
     type Output = Vec3;
 

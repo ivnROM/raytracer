@@ -12,7 +12,10 @@ pub fn create_image() -> String {
     for j in 0..image_height {
         println!("Scanlines remaining: {}", image_height - j);
         for i in 0..image_width {
-            let pixel_color = Color::new([(i / (image_width - 1)) as f64, (j / (image_height - 1)) as f64, 0.0]);
+            let r = i as f64 / (image_width - 1) as f64;
+            let g = j as f64 / (image_height - 1) as f64;
+            let b = 0.0;
+            let pixel_color = Color::new([r, g, b]);
             content.push_str(&write_color(&pixel_color));
         }
     }

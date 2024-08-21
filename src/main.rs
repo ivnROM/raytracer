@@ -4,6 +4,7 @@ use std::io::{BufWriter, Write};
 mod ppm;
 mod vec3;
 mod colors;
+mod ray;
 
 fn main() {
     let content = ppm::create_image();
