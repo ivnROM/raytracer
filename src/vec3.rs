@@ -1,7 +1,7 @@
 #![allow(dead_code, unused)]
 mod operations;
 
-#[derive(Clone, Copy)]
+#[derive(Debug, Clone, Copy)]
 pub struct Vec3 {
     e: [f64; 3],
 }
