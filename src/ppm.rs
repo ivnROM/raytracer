@@ -58,7 +58,30 @@ pub fn create_image() -> String {
 
 /// Returns the color of the given ray
 fn ray_color(r: &Ray) -> Color {
+
+    let t =  hit_sphere(Point3::new([0.0, 0.0, -1.0]), 0.5, r);
+    if t > 0.0 {
+        let nrmal = Vec3::unit_v(r.at(t) - Vec3::new([0.0, 0.0, -1.0]));
+        return 0.5*Color::new([nrmal.x() + 1.0, nrmal.y() + 1.0, nrmal.z() + 1.0])
+    }
+
     let unit_v = Vec3::unit_v(*r.direction());
     let alpha = (unit_v.y() + 1.0) / 2.0;
     (1.0 - alpha) * Color::new([1.0, 1.0, 1.0]) + alpha * Color::new([0.5, 0.7, 1.0])
+}
+
+fn hit_sphere(center: Point3, radius: f64, r: &Ray) -> f64 {
+    let oc = center - *r.origin();
+
+    let a = Vec3::dotp(*r.direction(), *r.direction());
+    let h = Vec3::dotp(*r.direction(), oc);
+    let c = Vec3::dotp(oc, oc) - radius*radius;
+
+    let discriminant = b*b - 4.0*a*c;
+
+    if discriminant < 0.0 {
+        return -1.0
+    } else {
+        return (-b - discriminant.sqrt()) / (2.0 * a);
+    }
 }
