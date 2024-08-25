@@ -2,6 +2,7 @@ use super::Vec3;
 use std::ops::{self, Index, IndexMut};
 use std::fmt::Display;
 
+
 impl Index<usize> for Vec3 {
     type Output = f64;
 

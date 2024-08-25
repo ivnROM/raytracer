@@ -1,5 +1,5 @@
 #![allow(dead_code, unused)]
-mod operations;
+mod vec3_operations;
 
 #[derive(Debug, Clone, Copy)]
 pub struct Vec3 {
@@ -63,8 +63,8 @@ impl Vec3 {
         let result = vector / vector.length(); 
         result
     }
+    pub fn length_squared(&self) -> f64 {
 
-    fn length_squared(&self) -> f64 {
         self.e[0]*self.e[0] + self.e[1]*self.e[1] + self.e[2]*self.e[2]
     }
 

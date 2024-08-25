@@ -1,7 +1,7 @@
 #![allow(dead_code)]
-use crate::vec3::{Color, Vec3, Point3};
-use crate::ray::Ray;
-use crate::colors::write_color;
+use super::vec3::{Color, Vec3, Point3};
+use super::objects::ray::Ray;
+use super::utils::colors::write_color;
 
 const ASPECT_R: f64 = 16.00 / 9.00;
 
@@ -70,18 +70,18 @@ fn ray_color(r: &Ray) -> Color {
     (1.0 - alpha) * Color::new([1.0, 1.0, 1.0]) + alpha * Color::new([0.5, 0.7, 1.0])
 }
 
-fn hit_sphere(center: Point3, radius: f64, r: &Ray) -> f64 {
-    let oc = center - *r.origin();
-
-    let a = Vec3::dotp(*r.direction(), *r.direction());
-    let h = Vec3::dotp(*r.direction(), oc);
-    let c = Vec3::dotp(oc, oc) - radius*radius;
-
-    let discriminant = b*b - 4.0*a*c;
-
-    if discriminant < 0.0 {
-        return -1.0
-    } else {
-        return (-b - discriminant.sqrt()) / (2.0 * a);
-    }
-}
+//fn hit_sphere(center: Point3, radius: f64, r: &Ray) -> f64 {
+//    let oc = center - *r.origin();
+//
+//    let a = r.direction().length_squared();
+//    let h = Vec3::dotp(*r.direction(), oc);
+//    let c = oc.length_squared() - radius*radius;
+//
+//    let discriminant = h*h - a*c;
+//
+//    if discriminant < 0.0 {
+//        return -1.0
+//    } else {
+//        return (h - discriminant.sqrt()) / (2.0 * a);
+//    }
+//}

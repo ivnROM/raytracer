@@ -1,12 +1,10 @@
 mod utils;
-mod ppm;
 mod vec3;
-mod colors;
-mod ray;
-mod hittable;
+mod objects;
+mod render;
 
 fn main() {
-    let content = ppm::create_image();
-    utils::file_ops::save_image(content);
+    let content = render::create_image();
+    utils::file_operations::save_image(content);
 }
 

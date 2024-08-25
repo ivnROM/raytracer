@@ -1,10 +1,10 @@
-use crate::ray::Ray;
 use crate::vec3::{Point3, Vec3};
+use super::ray::Ray;
 
 pub struct HitRecord {
-    p: Point3, 
-    normal: Vec3,
-    t: f64,
+    pub p: Point3, 
+    pub normal: Vec3,
+    pub t: f64,
 }
 
 pub trait Hittable {
