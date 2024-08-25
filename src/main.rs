@@ -3,11 +3,7 @@ mod ppm;
 mod vec3;
 mod colors;
 mod ray;
-
-mod opa {
-    jadgkajldgkadjgadgda
-}
-
+mod hittable;
 
 fn main() {
     let content = ppm::create_image();
